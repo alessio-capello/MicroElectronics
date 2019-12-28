@@ -1,0 +1,122 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%font sezioni ecc
+\usepackage{titlesec}
+
+\titleformat{\section} {\normalfont\large\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection} {\normalfont\large}{\thesubsection}{1em}{}
+\titleformat{\subsubsection} {\normalfont\normalsize}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin] {\normalfont\normalsize}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}[runin] {\normalfont\normalsize}{\thesubparagraph}{1em}{}
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{TSPC 4-bit Full Adder}
+\author{Francesco Morgillo\\3810105}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section{Obiettivi del progetto B}
+Si presenta il progetto di design di un full-adder a 4 bit con tecnologia MOS 0.12 $\mu$ m e logica TSPC (true single phase clock). 
+Il Full Adder presenta quattro ingressi: due word a 4 bit di cui eseguire la somma ($a_{0},b_{0}$), un $CARRY IN$ ($ c_{0}$) e un ingresso dedicato al clock ($\phi$).
+Le uscite del circuito sono i segnali di $SUM$ e $CARRY$.
+\subsection{Specifiche del Progetto}
+Per la realizzazione del circuito sono richieste l'utilizzo di tecnologia MOS a 0.12 $\mu$ m, un'alimentazione a $1.2V$, frequenza di lavoro $2GHz$,  carico capacitivo di $100fF$ e una dimensione della cella con altezza massima di 68$\lambda$.
+
+\section{Logica TSPC}
+La logica TSPC prevede l'utilizzo di un blocco di logica statica e di un segnale di clock che temporizza uno stadio latch. Si hanno due fasi differenti: una di precarica (quando $\phi=0$) ed una di valutazione (quando $\phi=1$). Il segnale di uscita va considerato in fase di valutazione.
+\clearpage
+\section{Dimensionamento}
+Sono state considerate le specifiche relative alla frequenza di funzionamento e al carico per ottenere le dimensioni dei transistor, nei vari stadi.  
+E' necessario innanzitutto calcolare le dimensioni di $W_{n}$ dello stadio finale. Calcolando il carico equivalente di ogni stadio, si ottiene a ritroso il valore di $W_{n}$ di ogni stadio.
+Le dimensioni $W_{n}$ si ottengono con la formula seguente:
+
+\begin{equation} 
+\frac{W_{n}}{L}=\frac{2CV_{dd}}{\
+ \mu_{n}C_{ox}(V_{gs}-V_{th})^2}
+\end{equation}
+Dove:\mbox{}\\
+
+\begin{tabular}{|ll|}
+\hline
+$V_{gs}$ & $1.20V$ \\
+$C$ & $100fF$ \\
+$\tau$ & 250ps\\
+$\mu_{n}$ & $0.06$  $\frac{fF}{m^2}$  \\
+$C_{ox}$ & $0.01725$ $\frac{m^2}{Vs}$  \\
+$V_{gs} - V_{th}$ & $0.8V$ \\
+\hline
+\end{tabular}
+\mbox{}\\
+\\
+Partendo dal terzo stadio si applica la formula e considerando il vincolo di tecnologia $L= 120 nm$ di ottiene un rapporto $\frac {W_{n}}{L}= 1.4486$.
+Si approssima all'intero successivo visto che larghezza  $W_{n}$ non può che essere un multiplo intero di L :   $W_{n}=2L= 240nm$.
+Per un transistor $p$ si dovrà triplicare questo valore per via della minor mobilità degli elettroni nel substrato $P$, quindi $W_{p}=3W_{n}= 720nm$.
+
+Per quanto riguarda il secondo stadio è necessario considerare la capacità equivalente che esso vede sul terzo stadio.
+La capacità equivalente viene calcolata come segue :
+\begin{equation}
+C_{G}= C_{ox}W_{n}L+C_{ox}W_{p}L= 2.93fF
+\end{equation}
+Il valore del carico da pilotare è abbastanza piccolo per poter utilizzare dei transistor a dimensione minima ($W_{n}=120 nm$, $W_{p}=3W_{n}= 360nm$)
+Lo stesso ragionamento porta a scegliere dei transistor a dimensione minima anche nel primo stadio. 
+
+\subsection{}
+
+More text.
+
+\end{document}
