@@ -49,6 +49,9 @@
 \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
+%immagini
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 %font sezioni ecc
 \usepackage{titlesec}
@@ -167,6 +170,8 @@ Una considerazione analoga può essere fatta per i transitor del primo stadio. S
 \item $W_{p} = 360 nm$ Dimensione minima per un transistor P
 \end{itemize}
 
-
-
+\section{Realizzazione}
+Una volta ricavati i dati relativi alle dimensioni dei trainsistor si è realizzato il layout del'adder a 1 bit utilizzando il software Microwind.\\
+\includegraphics[scale=0.4]{Layout1_152x60}
+Le dimensioni del circuito (escludendo le piste di alimentazione e quelle relative ai segnali) sono di $152 \lambda * 60 \lambda$, quindi coerenti con le specifiche assegnate.
 \end{document}
