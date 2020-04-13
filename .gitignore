@@ -21,3 +21,12 @@
 *.mtc1
 *.out
 *.synctex.gz
+*.als
+*.1OP
+*.dat
+*.ind
+*.mif
+*.prb
+*.out
+*.scv
+*.xrf
