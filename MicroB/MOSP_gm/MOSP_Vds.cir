@@ -1,0 +1,25 @@
+* F:\CONTROLLO VERSIONE\MICROA\MicroB\MOSP_gm\MOSP_Vds.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Wed Apr 15 19:18:23 2020
+
+
+
+** Analysis setup **
+.DC LIN V_Vgs 0 3.3 25m 
+.OP 
+.LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
+.LIB "C:\Users\Fra\Desktop\MicroB\MOSN_R0.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "MOSP_Vds.net"
+.INC "MOSP_Vds.als"
+
+
+.probe
+
+
+.END
