@@ -24,6 +24,7 @@ C? 2
 + 4 0
 + 5 4
 + 6 1m
+.PROBE 0 0 1 1 0 2
 .LIB C:\Users\Fra\Desktop\MicroB\test.lib
 @targets
 @attributes
@@ -40,9 +41,9 @@ AutoGenStim4ExtIFPorts 1
 @index
 pageloc 1 0 1891 
 @status
-n 0 120:03:15:11:07:57;1586941677 e 
-s 2832 120:03:15:11:07:57;1586941677 e 
-c 120:03:15:11:07:55;1586941675
+n 0 120:03:15:11:41:12;1586943672 e 
+s 2832 120:03:15:11:41:12;1586943672 e 
+c 120:03:15:11:41:11;1586943671
 *page 1 0 970 720 iA
 @ports
 port 70 GND_EARTH 470 300 h
