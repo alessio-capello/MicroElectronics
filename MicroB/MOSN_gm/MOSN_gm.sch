@@ -1,5 +1,5 @@
-*version 9.1 27418054
-u 210
+*version 9.1 480072673
+u 216
 R? 10
 M? 6
 V? 10
@@ -11,7 +11,7 @@ C? 2
 + 0 0 Vgs
 + 0 4 0
 + 0 5 3.3
-+ 0 6 300m
++ 0 6 100m
 + 1 0 Vgs
 + 1 4 0.1
 + 1 5 3.3
@@ -39,11 +39,11 @@ connectViaLocalLabels 0
 NoStim4ExtIFPortsWarnings 1
 AutoGenStim4ExtIFPorts 1
 @index
-pageloc 1 0 1891 
+pageloc 1 0 1981 
 @status
-n 0 120:03:15:11:41:12;1586943672 e 
-s 2832 120:03:15:11:41:12;1586943672 e 
-c 120:03:15:11:41:11;1586943671
+n 0 120:03:15:17:11:28;1586963488 e 
+s 2832 120:03:15:17:11:46;1586963506 e 
+c 120:03:15:17:07:26;1586963246
 *page 1 0 970 720 iA
 @ports
 port 70 GND_EARTH 470 300 h
@@ -54,23 +54,24 @@ a 1 u 13 0 -11 23 hcn 100 DC=0.76
 a 0 sp 0 0 22 37 hln 100 PART=VDC
 a 0 x 0:13 0 0 0 hln 100 PKGREF=Vgs
 a 1 xp 9 0 24 7 hcn 100 REFDES=Vgs
-part 10 VDC 360 220 u
+part 210 VDC 360 180 h
 a 0 sp 0 0 22 37 hln 100 PART=VDC
-a 0 x 0:13 0 0 0 hln 100 PKGREF=Vgd
-a 1 xp 9 0 39 12 hcn 100 REFDES=Vgd
-a 1 u 13 0 -11 33 hcn 100 DC=0.4
+a 0 x 0:13 0 0 0 hln 100 PKGREF=Vds
+a 1 xp 9 0 39 12 hcn 100 REFDES=Vds
+a 1 u 13 0 -11 33 hcn 100 DC=3.3
 part 3 MbreakN 440 220 h
 a 0 u 0 0 0 0 hln 100 L=1.4u
-a 0 u 0 0 0 0 hln 100 W=1.4u
 a 0 a 0:13 0 0 0 hln 100 PKGREF=M1
 a 0 ap 9 0 5 10 hln 100 REFDES=M1
 a 0 sp 13 0 -12 40 hln 100 MODEL=MODN
+a 0 u 0 0 0 0 hln 100 W=1.4u
 part 1 titleblk 970 720 h
 a 1 s 13 0 350 10 hcn 100 PAGESIZE=A
 a 1 s 13 0 180 60 hcn 100 PAGETITLE=
 a 1 s 13 0 340 95 hrn 100 PAGECOUNT=1
 a 1 s 13 0 300 95 hrn 100 PAGENO=1
 part 158 iMarker 470 200 h
+a 0 s 0 0 0 0 hln 100 PROBEVAR=
 a 0 s 0 0 0 0 hln 100 PROBEVAR=
 a 0 s 0 0 0 0 hln 100 PROBEVAR=
 a 0 s 0 0 0 0 hln 100 PROBEVAR=
@@ -82,6 +83,11 @@ a 0 up 0:33 0 0 0 hln 100 V=
 s 470 240 470 300 7
 a 0 up 33 0 472 270 hlt 100 V=
 s 470 240 480 240 5
+w 163
+a 0 up 0:33 0 0 0 hln 100 V=
+s 420 260 420 220 123
+a 0 up 33 0 422 240 hlt 100 V=
+s 440 220 420 220 118
 w 204
 a 0 up 0:33 0 0 0 hln 100 V=
 s 470 200 470 120 136
@@ -90,12 +96,9 @@ s 470 210 470 200 98
 s 360 120 470 120 69
 a 0 up 33 0 510 119 hct 100 V=
 s 360 180 360 120 195
-w 163
-a 0 up 0:33 0 0 0 hln 100 V=
-s 420 260 420 220 123
-a 0 up 33 0 422 240 hlt 100 V=
-s 440 220 420 220 118
-s 420 220 360 220 206
+w 212
+s 360 220 360 300 211
+s 360 300 420 300 213
 @junction
 j 420 300
 + s 71
@@ -125,14 +128,17 @@ j 440 220
 + p 3 g
 + w 163
 j 360 180
-+ p 10 -
++ p 210 +
 + w 204
 j 360 220
-+ p 10 +
-+ w 163
-j 420 220
-+ w 163
-+ w 163
++ p 210 -
++ w 212
+j 420 300
++ p 156 -
++ w 212
+j 420 300
++ s 71
++ w 212
 @attributes
 a 0 s 0:13 0 0 0 hln 100 PAGETITLE=
 a 0 s 0:13 0 0 0 hln 100 PAGENO=1

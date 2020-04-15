@@ -1,12 +1,12 @@
 * F:\CONTROLLO VERSIONE\MICROA\MicroB\MOSN_gm\MOSN_gm.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Wed Apr 15 11:41:12 2020
+* Wed Apr 15 17:11:28 2020
 
 
 
 ** Analysis setup **
-.DC LIN V_Vgs 0 3.3 300m 
+.DC LIN V_Vgs 0 3.3 100m 
 .OP 
 .LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
 
