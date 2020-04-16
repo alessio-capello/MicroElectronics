@@ -53,8 +53,8 @@ gm_cluster=[xd  gm ];
 Ids_33_cluster= [Ids_33.Data(:,1) Ids_33.Data(:,5) ];
 
 xlswrite('DATI_correnti_gm.xlsx',Ids_cluster,1);
-%xlswrite('DATI_correnti_gm.xlsx',gm_cluster,2);
-%xlswrite('DATI_correnti_gm.xlsx',Ids_33_cluster,3);
+xlswrite('DATI_correnti_gm.xlsx',gm_cluster,2);
+xlswrite('DATI_correnti_gm.xlsx',Ids_33_cluster,3);
 % 
 
 
