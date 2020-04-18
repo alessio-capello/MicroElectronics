@@ -1,21 +1,22 @@
-* F:\CONTROLLO VERSIONE\MICROA\MicroB\MOSN_gm\MOSN_gm.sch
+* F:\CONTROLLO VERSIONE\MICROA\MicroB\Stadio_diff\diffN.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Wed Apr 15 19:26:24 2020
+* Fri Apr 17 11:57:25 2020
 
 
 
 ** Analysis setup **
-.DC LIN V_Vgs 0 3.3 100m 
+.tran 0ns 1 0 0.1m
 .OP 
 .LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
+.LIB "C:\Users\Fra\Desktop\MicroB\MOSN_R0.lib"
 
 
 * From [PSPICE NETLIST] section of pspiceev.ini:
 .lib "nom.lib"
 
-.INC "MOSN_gm.net"
-.INC "MOSN_gm.als"
+.INC "diffN.net"
+.INC "diffN.als"
 
 
 .probe
