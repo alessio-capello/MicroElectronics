@@ -1,7 +1,7 @@
 * F:\CONTROLLO VERSIONE\MICROA\MicroB\MOSN_gm\MOSN_gm.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Wed Apr 15 19:26:24 2020
+* Sun Apr 19 15:44:51 2020
 
 
 
@@ -9,6 +9,7 @@
 .DC LIN V_Vgs 0 3.3 100m 
 .OP 
 .LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
+.LIB "F:\CONTROLLO VERSIONE\MICROA\MicroB\MOSN_gm\MOSN_gm.lib"
 
 
 * From [PSPICE NETLIST] section of pspiceev.ini:

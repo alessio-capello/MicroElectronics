@@ -1,14 +1,12 @@
-* F:\CONTROLLO VERSIONE\MICROA\MicroB\Stadio_diff\diffP.sch
+* F:\CONTROLLO VERSIONE\MICROA\MicroB\Miller\Slew.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Tue Apr 21 16:15:24 2020
+* Tue Apr 21 18:40:18 2020
 
 
 
 ** Analysis setup **
-.ac DEC 1000 1 800Meg
-.tran 0ns 0.25 0 0.1m
-.OP 
+.tran 0ns 100m 0 0.01m
 .LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
 .LIB "C:\Users\Fra\Desktop\MicroB\MOSN_R0.lib"
 
@@ -16,8 +14,8 @@
 * From [PSPICE NETLIST] section of pspiceev.ini:
 .lib "nom.lib"
 
-.INC "diffP.net"
-.INC "diffP.als"
+.INC "Slew.net"
+.INC "Slew.als"
 
 
 .probe
