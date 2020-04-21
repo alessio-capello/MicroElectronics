@@ -3,6 +3,10 @@ close all;
 clear all;
 %%
 
+%data reference in matrix
+Vgs_col = 1;
+Ids_col = 5;
+
 %IMPORT DATA
 
 %  Transistor N
@@ -16,7 +20,7 @@ Ids_33= readdat('IdsP_33.dat');
 %%
 %DERIVATIVE 
 % X axis
-x=data.Data(:,1);    
+x=data.Data(:,Vgs_col);    
 %x4=data4.Data(:,1); 
 
 % preprocess x axis
@@ -24,7 +28,7 @@ xd = (x(1:end-1)+x(2:end))/2;
 %xd4 = (x4(1:end-1)+x4(2:end))/2;
 
 % compute deriv
-gm = diff(data.Data(:,5))./diff(x);
+gm = diff(data.Data(:,Ids_col))./diff(x);
 %gm4 = diff(data4.Data(:,5))./diff(x4);
 
 
@@ -33,11 +37,11 @@ gm = diff(data.Data(:,5))./diff(x);
 
 % % plot Id
 % figure('Name','Id_W/L  VS  Id_4W/L')
-% plot(data.Data(:,1),data.Data(:,5),data4.Data(:,1),data4.Data(:,5));
+% plot(data.Data(:,Vgs_col),data.Data(:,Ids_col),data4.Data(:,Vgs_col),data4.Data(:,Ids_col));
 % figure('Name','Relative error on aprox');
-% plot(data.Data(:,1),(4.*data.Data(:,5)-data4.Data(:,5))./4.*data.Data(:,5));
+% plot(data.Data(:,Vgs_col),(4.*data.Data(:,Ids_col)-data4.Data(:,Ids_col))./4.*data.Data(:,Ids_col));
 % figure('Name','Error on aprox');
-% plot(data.Data(:,1),(4.*data.Data(:,5)-data4.Data(:,5)));
+% plot(data.Data(:,Vgs_col),(4.*data.Data(:,Ids_col)-data4.Data(:,Ids_col)));
 % 
 % 
 % % plot gm
@@ -48,9 +52,9 @@ gm = diff(data.Data(:,5))./diff(x);
 %% SAVE DATA XLSX
 
 %Ids
-Ids_cluster=[data.Data(:,1) data.Data(:,5)  ];  
+Ids_cluster=[data.Data(:,Vgs_col) data.Data(:,Ids_col)  ];  
 gm_cluster=[xd  gm ]; 
-Ids_33_cluster= [Ids_33.Data(:,1) Ids_33.Data(:,5) ];
+Ids_33_cluster= [Ids_33.Data(:,Vgs_col) Ids_33.Data(:,Vgs_col) ];
 
 xlswrite('DATI_correnti_gm.xlsx',Ids_cluster,1);
 xlswrite('DATI_correnti_gm.xlsx',gm_cluster,2);
