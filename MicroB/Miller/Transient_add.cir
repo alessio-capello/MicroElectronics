@@ -1,0 +1,26 @@
+* F:\CONTROLLO VERSIONE\MICRO\MicroB\Miller\Transient_add.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Apr 24 12:10:10 2020
+
+
+
+** Analysis setup **
+.ac DEC 1000 1 800Meg
+.STEP LIN V_V51 1 2.1 0.5 
+.OP 
+.LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
+.LIB "C:\Users\Fra\Desktop\MicroB\MOSN_R0.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Transient_add.net"
+.INC "Transient_add.als"
+
+
+.probe
+
+
+.END

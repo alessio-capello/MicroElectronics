@@ -1,0 +1,25 @@
+* F:\CONTROLLO VERSIONE\MICRO\MicroB\Miller\Add.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Fri Apr 24 10:55:27 2020
+
+
+
+** Analysis setup **
+.ac DEC 1000 1 800Meg
+.OP 
+.LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
+.LIB "C:\Users\Fra\Desktop\MicroB\MOSN_R0.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Add.net"
+.INC "Add.als"
+
+
+.probe
+
+
+.END
