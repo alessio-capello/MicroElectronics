@@ -1,11 +1,12 @@
-* F:\CONTROLLO VERSIONE\MICROA\MicroB\MOSP_gm\MOSP_Vds.sch
+* F:\CONTROLLO VERSIONE\MICRO\MicroB\MOSP_gm\MOSP_Vds.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Thu Apr 16 18:36:50 2020
+* Sat Apr 25 18:25:32 2020
 
 
 
 ** Analysis setup **
+.DC LIN V_Vds 0 3.3 20m 
 .tran 0ns 1 0 0.1m
 .OP 
 .LIB "C:\Users\Fra\Desktop\MicroB\test.lib"

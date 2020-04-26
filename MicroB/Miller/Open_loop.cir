@@ -1,12 +1,12 @@
-* F:\CONTROLLO VERSIONE\MICRO\MicroB\Miller\Transient_add.sch
+* F:\CONTROLLO VERSIONE\MICRO\MicroB\Miller\Open_loop.sch
 
 * Schematics Version 9.1 - Web Update 1
-* Sat Apr 25 12:23:30 2020
+* Sat Apr 25 10:25:01 2020
 
 
 
 ** Analysis setup **
-.tran 0ns 0.2 0 0.1m
+.ac DEC 1000 1 800Meg
 .OP 
 .LIB "C:\Users\Fra\Desktop\MicroB\test.lib"
 .LIB "C:\Users\Fra\Desktop\MicroB\MOSN_R0.lib"
@@ -15,8 +15,8 @@
 * From [PSPICE NETLIST] section of pspiceev.ini:
 .lib "nom.lib"
 
-.INC "Transient_add.net"
-.INC "Transient_add.als"
+.INC "Open_loop.net"
+.INC "Open_loop.als"
 
 
 .probe

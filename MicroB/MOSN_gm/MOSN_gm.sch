@@ -1,4 +1,4 @@
-*version 9.1 3862839085
+*version 9.1 748797907
 u 374
 R? 10
 M? 8
@@ -8,7 +8,7 @@ C? 2
 @libraries
 @analysis
 .DC 1 0 0 0 0 0
-+ 0 0 Vgs
++ 0 0 Vsd
 + 0 4 0
 + 0 5 3.3
 + 0 6 100m
@@ -40,11 +40,11 @@ connectViaLocalLabels 0
 NoStim4ExtIFPortsWarnings 1
 AutoGenStim4ExtIFPorts 1
 @index
-pageloc 1 0 1803 
+pageloc 1 0 1895 
 @status
-n 0 120:03:19:15:44:51;1587303891 e 
-s 2832 120:03:19:15:44:51;1587303891 e 
-c 120:03:19:15:44:49;1587303889
+n 0 120:03:25:17:36:42;1587829002 e 
+s 2832 120:03:25:18:10:00;1587831000 e 
+c 120:03:25:17:36:25;1587828985
 *page 1 0 970 720 iA
 @ports
 port 70 GND_EARTH 470 300 h

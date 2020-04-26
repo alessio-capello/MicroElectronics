@@ -1,4 +1,4 @@
-*version 9.1 1069203428
+*version 9.1 533583637
 u 1611
 R? 14
 M? 24
@@ -46,11 +46,11 @@ connectViaLocalLabels 0
 NoStim4ExtIFPortsWarnings 1
 AutoGenStim4ExtIFPorts 1
 @index
-pageloc 1 0 7994 
+pageloc 1 0 8418 
 @status
-n 0 120:03:21:16:15:24;1587478524 e 
-s 0 120:03:21:16:15:24;1587478524 e 
-c 120:03:21:17:28:06;1587482886
+n 0 120:03:25:11:43:46;1587807826 e 
+s 2832 120:03:25:11:43:49;1587807829 e 
+c 120:03:25:11:43:37;1587807817
 *page 1 0 970 720 iA
 @ports
 port 1231 GND_EARTH 430 290 h

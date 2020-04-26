@@ -1,19 +1,19 @@
-*version 9.1 211471206
-u 190
+*version 9.1 3369540503
+u 228
 R? 10
-M? 6
+M? 8
 V? 10
 ? 11
 C? 2
 @libraries
 @analysis
-.DC 1 1 0 0 0 0
+.DC 1 0 0 0 0 0
 + 0 0 Vds
 + 0 4 0
 + 0 5 3.3
 + 0 6 25m
-+ 1 0 Vgs
-+ 1 4 0.1
++ 1 0 Vsd
++ 1 4 0
 + 1 5 3.3
 + 1 6 100m
 .TRAN 1 0 0 0
@@ -25,6 +25,7 @@ C? 2
 + 5 4
 + 6 1m
 .LIB C:\Users\Fra\Desktop\MicroB\test.lib
++ F:\CONTROLLO VERSIONE\MICRO\MicroB\MOSN_Vds\MOSN_Vds.lib
 @targets
 @attributes
 @translators
@@ -38,96 +39,101 @@ connectViaLocalLabels 0
 NoStim4ExtIFPortsWarnings 1
 AutoGenStim4ExtIFPorts 1
 @index
-pageloc 1 0 1837 
+pageloc 1 0 1930 
 @status
-n 0 120:03:13:12:09:05;1586772545 e 
-s 0 120:03:13:12:09:08;1586772548 e 
-c 120:03:13:12:08:59;1586772539
+n 2840 120:03:25:18:22:06;1587831726 e 
+s 0 120:03:25:17:39:28;1587829168 e 
+c 120:03:25:18:22:03;1587831723
 *page 1 0 970 720 iA
 @ports
-port 74 GND_EARTH 170 200 h
-port 70 GND_EARTH 470 300 h
-port 71 GND_EARTH 420 300 h
+port 224 GND_EARTH 250 290 h
 @parts
-part 3 MbreakN 440 220 h
-a 0 u 0 0 0 0 hln 100 L=1.4u
-a 0 u 0 0 0 0 hln 100 W=1.4u
-a 0 a 0:13 0 0 0 hln 100 PKGREF=M1
-a 0 ap 9 0 5 10 hln 100 REFDES=M1
-a 0 sp 13 0 -12 40 hln 100 MODEL=MODN
-part 156 VDC 420 260 h
+part 220 VDC 200 160 d
 a 1 u 13 0 -11 23 hcn 100 DC=0.76
 a 0 sp 0 0 22 37 hln 100 PART=VDC
 a 0 x 0:13 0 0 0 hln 100 PKGREF=Vgs
 a 1 xp 9 0 24 7 hcn 100 REFDES=Vgs
-part 10 VDC 170 160 h
+part 223 VDC 330 220 h
 a 0 sp 0 0 22 37 hln 100 PART=VDC
-a 0 x 0:13 0 0 0 hln 100 PKGREF=Vds
-a 1 xp 9 0 24 7 hcn 100 REFDES=Vds
 a 1 u 13 0 -11 23 hcn 100 DC=3.3
+a 0 x 0:13 0 0 0 hln 100 PKGREF=Vsd
+a 1 xp 9 0 24 7 hcn 100 REFDES=Vsd
+part 226 MbreakP 220 220 U
+a 0 a 0:13 0 0 0 hln 100 PKGREF=M7
+a 0 ap 9 0 5 10 hln 100 REFDES=M7
+a 0 sp 13 0 -12 40 hln 100 MODEL=MODP
+a 0 u 0 0 0 0 hln 100 W=1.4u
+a 0 u 0 0 0 0 hln 100 L=1.4u
 part 1 titleblk 970 720 h
 a 1 s 13 0 350 10 hcn 100 PAGESIZE=A
 a 1 s 13 0 180 60 hcn 100 PAGETITLE=
 a 1 s 13 0 340 95 hrn 100 PAGECOUNT=1
 a 1 s 13 0 300 95 hrn 100 PAGENO=1
-part 158 iMarker 470 200 h
+part 225 iMarker 250 200 h
 a 0 s 0 0 0 0 hln 100 PROBEVAR=
 a 0 s 0 0 0 0 hln 100 PROBEVAR=
 a 0 s 0 0 0 0 hln 100 PROBEVAR=
-a 0 a 0 0 6 20 hlb 100 LABEL=8
+a 0 a 0 0 6 20 hlb 100 LABEL=11
 @conn
-w 163
+w 207
 a 0 up 0:33 0 0 0 hln 100 V=
-s 420 260 420 220 123
-a 0 up 33 0 422 240 hlt 100 V=
-s 440 220 420 220 118
-w 150
+s 220 220 160 220 206
+s 160 220 160 160 208
+a 0 up 33 0 162 190 hlt 100 V=
+w 211
 a 0 up 0:33 0 0 0 hln 100 V=
-s 470 240 470 300 7
-a 0 up 33 0 472 270 hlt 100 V=
-s 470 240 480 240 5
-w 135
+s 330 220 330 160 210
+s 200 160 250 160 212
+s 250 200 260 200 214
+s 250 200 250 160 216
+a 0 up 33 0 322 245 hlt 100 V=
+s 330 160 250 160 218
+a 0 up 33 0 290 159 hct 100 V=
+w 199
 a 0 up 0:33 0 0 0 hln 100 V=
-s 170 120 470 120 69
-a 0 up 33 0 415 119 hct 100 V=
-s 170 120 170 160 100
-s 470 210 470 200 98
-s 470 200 470 120 136
-a 0 up 33 0 472 205 hlt 100 V=
+s 330 260 330 290 198
+s 330 290 250 290 204
+a 0 up 33 0 290 289 hct 100 V=
+s 250 230 250 240 222
+a 0 up 33 0 252 260 hlt 100 V=
+s 250 240 250 290 227
 @junction
-j 170 200
-+ p 10 -
-+ s 74
-j 420 300
-+ s 71
-+ p 156 -
-j 420 260
-+ p 156 +
-+ w 163
-j 170 160
-+ p 10 +
-+ w 135
-j 470 200
-+ p 158 pin1
-+ w 135
-j 470 300
-+ s 70
-+ w 150
-j 470 240
-+ p 3 s
-+ w 150
-j 480 240
-+ p 3 b
-+ w 150
-j 470 200
-+ p 3 d
-+ w 135
-j 470 200
-+ p 158 pin1
-+ p 3 d
-j 440 220
-+ p 3 g
-+ w 163
+j 250 160
++ w 211
++ w 211
+j 160 160
++ p 220 -
++ w 207
+j 200 160
++ p 220 +
++ w 211
+j 330 260
++ p 223 -
++ w 199
+j 330 220
++ p 223 +
++ w 211
+j 250 290
++ s 224
++ w 199
+j 250 200
++ p 225 pin1
++ w 211
+j 250 200
++ p 226 s
++ p 225 pin1
+j 220 220
++ p 226 g
++ w 207
+j 250 200
++ p 226 s
++ w 211
+j 260 200
++ p 226 b
++ w 211
+j 250 240
++ p 226 d
++ w 199
 @attributes
 a 0 s 0:13 0 0 0 hln 100 PAGETITLE=
 a 0 s 0:13 0 0 0 hln 100 PAGENO=1
