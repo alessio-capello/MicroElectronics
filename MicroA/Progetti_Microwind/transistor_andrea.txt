@@ -1,0 +1,7 @@
+p mos uscita: 72 lambda
+
+n mos uscita: 26 lambda  (fatti)
+
+n mos secondo stadio: 12 lambda
+
+p mos secondo stadio: 12 lambda
