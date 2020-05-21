@@ -12,7 +12,7 @@ Vclock 21 0 PULSE(0.00 1.20 0.23N 0.02N 0.02N 0.23N 0.50N)
 * "SUM" corresponds to n°3
 * "CARRY" corresponds to n°5
 * "VG3" corresponds to n°6
-* "N7" corresponds to n°7
+* "Vg3o" corresponds to n°7
 * "N8" corresponds to n°8
 * "N9" corresponds to n°9
 * "b0" corresponds to n°18
@@ -50,7 +50,7 @@ MP8 7 20 9 1 P1  W= 0.36U L= 0.12U
 C2 1 0 10.977fF
 C3 3 0  1.819fF
 C5 5 0  1.526fF
-C6 6 0  1.953fF
+C6 6 0  1.906fF
 C7 7 0  1.409fF
 C8 8 0  0.073fF
 C9 9 0  0.322fF
