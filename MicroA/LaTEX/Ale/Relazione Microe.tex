@@ -62,6 +62,10 @@
 \titleformat{\paragraph}[runin] {\normalfont\normalsize}{\theparagraph}{1em}{}
 \titleformat{\subparagraph}[runin] {\normalfont\normalsize}{\thesubparagraph}{1em}{}
 
+\pretolerance=10000
+\tolerance=2000 
+\emergencystretch=10pt
+
 %%% END Article customizations
 
 %%% The "real" document content comes below...
@@ -171,12 +175,55 @@ Una considerazione analoga può essere fatta per i transitor del primo stadio. S
 \end{itemize}
 
 \section{Realizzazione}
-Una volta ricavati i dati relativi alle dimensioni dei trainsistor si è realizzato il layout del'adder a 1 bit utilizzando il software Microwind.\\
+Una volta ricavati i dati relativi alle dimensioni dei trainsistor si è realizzato il layout dell'adder a 1 bit utilizzando il software Microwind.\\
 \includegraphics[scale=0.4]{Layout1_152x60}
 Le dimensioni del circuito (escludendo le piste di alimentazione e quelle relative ai segnali) sono di $152 \lambda * 60 \lambda$, quindi coerenti con le specifiche assegnate.
 
-\subsection{Simulazione}
+\clearpage
+\section{Simulazione}
 Utilizzando le funzioni di simulazione del funzionamento del circuito di Microwind ho ottenuto i seguenti risultati\\
 \includegraphics[width = 160mm, height = 150mm]{plot_microwind_layout1}
-Dal punto di vista logico il circuito funziona correttamente.
+Dal punto di vista logico il circuito funziona correttamente, ma sono evidenti problemi di ritardi e raggiungimento del valore di uscita corretto, in particolare se si cambia il software di simulazione.
+Utizzando Spice si ottengono i seguenti risultati:
+\includegraphics[width = 160mm, height = 150mm]{Vecchio}
+I segnali nel grafico sono:
+\begin{itemize}
+\item Clock
+\item A0
+\item B0
+\item C0
+\item SUM
+\item CARRY
+\end{itemize}
+
+Per risolvere questo problema è stato necessario ingrandire parte dei transistor iniziando dallo stadio di uscita. Seguendo la logica della fase di dimensionamento si è cercato un valore di W che permettesse al transistor di pilotare correttamente la capacità di uscita per poi ricalcolare la capacità di gate dei transistor ridimensionati e valutare le dimensioni più appropriate per gli stadi precedenti.\\
+Poiché le differenze tra il valore atteso e quello ottenuto sono dovute alla differenza tra i modelli utilizzati (in fase di dimensionamento e dal simulatore), è stato necessario procedere empiricamente per ottenere dimensioni corrette dei componenti.
+
+\includegraphics[scale = 0.35]{NuovoLayout_258x64}
+
+Il layout così ottenuto ha delle dimensioni totali di  $258 \lambda * 64 \lambda$ (escludendo le piste di alimentazione, degli ingressi e quelle di uscita).
+
+\includegraphics[width = 160mm, height = 140mm]{uscita_dimensioni_corrette}
+I segnali nel grafico sono:
+\begin{itemize}
+\item Clock
+\item A0
+\item B0
+\item C0
+\item SUM
+\item CARRY
+\end{itemize}
+Si può chiaramente osservare come le uscite raggiungano sempre il calore corretto e non si fermino a valori intermedi (come nel layout precedente).
+
+\clearpage
+\section{Analisi Potenza}
+
+Per analizzare la potenza assorbita dal circuito si è sfruttato il software di simulazione Pspice, in particolare si è costruito il grafico considerando il prodotto tra la corrente e la tensione fornite dal generatore (cambiate di segno per convenzione dei generatori).
+
+\includegraphics[scale = 0.35]{power}\\
+
+Come si vede dal grafico la potenza fornita è quella necessaria per le transizioni (coerentemente con le caratteristiche dei transistor mos). Per avere un numero più significatori abbiamo quindi considerato la potenza media, ottenendo il seguente risultato.\\
+
+\includegraphics[scale = 1]{powerAvg}
+
 \end{document}
