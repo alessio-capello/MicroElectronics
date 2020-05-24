@@ -131,31 +131,33 @@ Lo stesso ragionamento porta a scegliere dei transistor a dimensione minima anch
 
 Il circuito è stato quindi realizzato con \emph{Microwind} e in Figura \ref{fig:Layout1} ne è riportato il layout.
 L'area compresa fra le rail di alimentazione è di $66\lambda$ x $167 \lambda$.
+
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{Layout1.png}
   \caption{Layout Full-Adder}
   \label{fig:Layout1}
 \end{figure}
-\linespread{2}
-Dalla simulazione del circuito, svolta in ambiente \emph{Microwind}, si nota che le uscite del circuito non sono abbastanza veloci nella commutazione oppure non raggiungono valori di tensione adeguati.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \includegraphics[width=\linewidth]{Micro1.png}
   \caption{Simulazione in Microwind}
   \label{fig:Micro1}
 \end{figure}
-Importando la netlist del layout su \emph{LT Spice} si può osservare più nel dettaglio tali ritardi(Figura \ref{fig:LT1}).
 
-Osservando per esempio la prima transizione del segnale $SUM$, si nota che la tensione non raggiunge, nel tempo necessario la tensione sufficiente per ottenere un valore logico alto.
-Oppure nel caso del segnale di $CARRY$, sempre seguendone la prima transizione, si nota il ritardo di salita ma anche la difficoltà nel raggiungere lo zero prima che sopraggiunga una nuova variazione.
+\begin{figure} [h!]
+  \includegraphics[width=\linewidth]{Vecchio.png}
+  \caption{Simulazione in LTSpice}
+  \label{fig:LT1}
+\end{figure}
 
-I segnali in Figura \ref{fig:LT1}  sono riportati nella tabella  \ref{table:1}.\newline
 
-\begin {table}
+Dalla simulazione del circuito, svolta in ambiente \emph{Microwind}, si nota che le uscite del circuito non sono abbastanza veloci nella commutazione oppure non raggiungono valori di tensione adeguati.
 
+
+\begin {table} [h!]
 \begin{tabular}{|c|c|c|c|}
 \hline
-$\phi$ & $V(19)$\\
+$ Clock$ $\phi$ & $V(19)$\\
 \hline
 $A0$ & $V(20)$ \\
 \hline
@@ -172,32 +174,52 @@ $SUM$ & $V(4)$ \\
 \label{table:1}
 \end{table}
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{Vecchio.png}
-  \caption{Simulazione in LTSpice}
-  \label{fig:LT1}
-\end{figure}
+Importando la netlist del layout su \emph{LT Spice} si può osservare più nel dettaglio tali ritardi(Figura \ref{fig:LT1}).
 
 
-Questo comportamento indesiderato viene corretto effettuando un nuovo dimensionamento, procedendo con il graduale aumento della larghezza dei transistor coinvolti, partendo da quelli dello stadio finale.Di fatto aumentando la dimensione dei transistor dell'ultimo stadio, si aumenta la corrente per caricare le capacità di carico.
+Osservando per esempio la prima transizione del segnale $SUM$, si nota che la tensione non raggiunge, nel tempo necessario la tensione sufficiente per ottenere un valore logico alto.
+Oppure nel caso del segnale di $CARRY$, sempre seguendone la prima transizione, si nota il ritardo di salita ma anche la difficoltà nel raggiungere lo zero prima che sopraggiunga una nuova variazione.
+
+I segnali della Figura \ref{fig:LT1}  sono riportati nella tabella  \ref{table:1}.
+
+
+Questo comportamento indesiderato viene corretto effettuando un nuovo dimensionamento, procedendo con il graduale aumento della larghezza dei transistor coinvolti, partendo da quelli dello stadio finale.
+\newline 
+Di fatto aumentando la dimensione dei transistor dell'ultimo stadio, si aumenta la corrente per caricare le capacità di carico.
 Seguendo lo stesso ragionamento gli stadi precedenti vedono una capacità di carico dovuta al gate dello stadio che pilotano: si ridimensioneranno anche questi stadi di conseguenza.
+\newpage
 \section{Ridimensionamento}
-Il layout del circuito è stato quindi ridimensionato ed è riportato in Figura \ref{fig:Layout2}
+Il layout del circuito è stato quindi ridimensionato ed è riportato in Figura \ref{fig:Layout2}.
 
-I MOS dell'ultimo stadio sono stati notevolmente ingranditi e di conseguenza anche quelli degli stadi precedenti.
-L'area compresa fra le rail di alimentazione è di $65\lambda$ x $245 \lambda$.
-Dai risultati della simulazione su \emph{LT Spice} si nota come i segnali siano ora notevolmente più definiti e con un timing migliorato.
-In particolare, il segnale $SUM$ questa volta raggiunge un valore di tensione adeguato per essere considerato "$HIGH$" rispettando i tempi di valuazione e pre-carica imposti dal clock.
-Allo stesso modo il segnale $CARRY$ raggiunge il valore basso con una pendenza maggiore, quindi anch'esso in tempo per una nuova transizione.
 
  \begin{figure}[h]
   \includegraphics[width=\linewidth]{Layout2.png}
   \caption{Layout Full-Adder modificato}
   \label{fig:Layout2}
 \end{figure}
-\begin{figure}[h]
+ 
+I MOS dell'ultimo stadio sono stati notevolmente ingranditi e di conseguenza anche quelli degli stadi precedenti.
+L'area compresa fra le rail di alimentazione è di $65\lambda$ x $245 \lambda$.
+Dai risultati della simulazione su \emph{LT Spice} si nota come i segnali siano ora notevolmente più definiti e con un timing migliorato.
+In particolare, il segnale $SUM$ questa volta raggiunge un valore di tensione adeguato per essere considerato "$HIGH$" rispettando i tempi di valuazione e pre-carica imposti dal clock.
+
+\begin{figure}[h!]
   \includegraphics[width=\linewidth]{LT2.png}
   \caption{Simulazione in LT SPice del layout corretto}
   \label{fig:LT2}
+\end{figure}
+
+Allo stesso modo il segnale $CARRY$ raggiunge il valore basso con una pendenza maggiore, quindi anch'esso in tempo per una nuova transizione.
+\clearpage
+
+\section{Potenza assorbita}
+Sempre utilizzando \emph{LT Spice} si è ottenuta la traccia del prodotto $V_{dd}*I$ a rappresentare la Potenza istantanea assorbita dal circuito (riportata in Figura \ref{fig:Power}).
+\newline
+Sempre tramite \emph{LT Spice} si è ottenuto una misura del valor medio pari a $305.18 $  $\mu W$
+
+ \begin{figure}[h!]
+  \includegraphics[width=\linewidth]{power.png}
+  \caption{Potenza istantanea}
+  \label{fig:Power}
 \end{figure}
 \end{document}
