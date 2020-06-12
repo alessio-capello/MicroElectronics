@@ -99,7 +99,7 @@ Le dimensioni $W_{n}$ si ottengono con la formula seguente:
 
 \begin{equation} 
 \frac{W_{n}}{L}=\frac{2CV_{dd}}{\
- \mu_{n}C_{ox}(V_{gs}-V_{th})^2}
+ \tau \mu_{n}C_{ox}(V_{gs}-V_{th})^2}
 \end{equation}
 Dove:\mbox{}\\
 
@@ -222,4 +222,18 @@ Sempre tramite \emph{LT Spice} si è ottenuto una misura del valor medio pari a 
   \caption{Potenza istantanea}
   \label{fig:Power}
 \end{figure}
+
+\section{Conclusioni}
+Si è realizzato il layout  di un Full Adder a 1 bit in logica TSPC con tecnologia MOS a $ 0.12 $ $\mu m$.  \\
+Si è partiti con le dimensioni dei transistor ottenute dalla teoria, fino a ottenere un circuito finale le cui dimensioni sono aumentate in base alle considerazioni riguardanti  timing e capacità di carica dei singoli stadi.\\
+Non si è realizzato il circuito a 4 bit perchè la propagazione del ritardo del segnale $CARRY$ dovuta alla configurazione a cascata di 4 stadi ad 1 bit, potrebbe generare dei risultati senza significato.\\
+Le dimensioni finali del layout sono di $65\lambda$ x $245 \lambda$.\\
+Il circuito assorbe mediamente  $305.18 $  $\mu W$.
+
+
+\section{Bibliografia}
+\begin{itemize}
+  \item Jiren Yuan and Christer Svensson, \textit{“High-Speed CMOS Circuit Technique”}. IEEE Journal of solid-state circuits Vol. 24, No. 1 February 1989.
+  \item Appunti del corso di \textit{Microelectronics}
+\end{itemize}
 \end{document}
